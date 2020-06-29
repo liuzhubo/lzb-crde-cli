@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>HTTP协议初步探究 | zhubo.liu</title>
+    <meta name="description" content="
+HTTP概念
+
+​		HTTP协议是超文本传输协议，用于约束与规范客户机向服务器发送请求、服务器向客户机发送响应的过程。简而言之，当向服务器发送请求时，需要遵循http协议的相关规定。有一个需要记住的点，HTTP的默认端口为80，HTTPS协议的默认端口是443。
+
+了解TCP/IP协议栈
+
+​		在深入了解HTTP协议之前，我们需要先了解一下TCP/IP协议栈。TCP/IP协议栈 ...">
+    <meta name="generator" content="VuePress 1.3.1">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.eae4ebea.css" as="style"><link rel="preload" href="/assets/js/app.09a3bd8d.js" as="script"><link rel="preload" href="/assets/js/6.3ceb2cad.js" as="script"><link rel="preload" href="/assets/js/5.8edf4780.js" as="script"><link rel="preload" href="/assets/js/23.ac54be49.js" as="script"><link rel="prefetch" href="/assets/js/1.581d65ea.js"><link rel="prefetch" href="/assets/js/10.02602d60.js"><link rel="prefetch" href="/assets/js/11.3b5d7cec.js"><link rel="prefetch" href="/assets/js/12.fb447bc6.js"><link rel="prefetch" href="/assets/js/13.d3602aa2.js"><link rel="prefetch" href="/assets/js/14.69cadb29.js"><link rel="prefetch" href="/assets/js/15.92313a6b.js"><link rel="prefetch" href="/assets/js/16.df89dde7.js"><link rel="prefetch" href="/assets/js/17.6dfe044b.js"><link rel="prefetch" href="/assets/js/18.848dd9b8.js"><link rel="prefetch" href="/assets/js/19.4121da39.js"><link rel="prefetch" href="/assets/js/20.5df789a9.js"><link rel="prefetch" href="/assets/js/21.69759581.js"><link rel="prefetch" href="/assets/js/22.5f86356e.js"><link rel="prefetch" href="/assets/js/24.e04f7b59.js"><link rel="prefetch" href="/assets/js/25.71ecdf51.js"><link rel="prefetch" href="/assets/js/26.a485f550.js"><link rel="prefetch" href="/assets/js/27.3136e18e.js"><link rel="prefetch" href="/assets/js/28.a7e57ab5.js"><link rel="prefetch" href="/assets/js/29.16e144b6.js"><link rel="prefetch" href="/assets/js/30.88eef922.js"><link rel="prefetch" href="/assets/js/31.140db00e.js"><link rel="prefetch" href="/assets/js/32.ac9597a7.js"><link rel="prefetch" href="/assets/js/4.5853eff5.js"><link rel="prefetch" href="/assets/js/7.a6714501.js"><link rel="prefetch" href="/assets/js/8.02126692.js"><link rel="prefetch" href="/assets/js/9.bf893a6d.js"><link rel="prefetch" href="/assets/js/vuejs-paginate.aa9d4f6e.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.eae4ebea.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div id="vuepress-theme-blog__global-layout"><section id="header-wrapper"><header id="header"><div class="header-wrapper"><div class="title"><a href="/" class="nav-link home-link">zhubo.liu </a></div> <div class="header-right-wrap"><ul class="nav"><li class="nav-item"><a href="/" class="nav-link"></a></li><li class="nav-item"><a href="/tag/javascript/" class="nav-link">javascript</a></li><li class="nav-item"><a href="/tag/css/" class="nav-link">css</a></li><li class="nav-item"><a href="/tag/other/" class="nav-link">其他</a></li><li class="nav-item"><a href="/tag/" class="nav-link">Tag</a></li></ul> <div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></div></header></section> <div id="mobile-header"><div class="mobile-header-bar"><div class="mobile-header-title"><a href="/" class="nav-link mobile-home-link">zhubo.liu </a> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></div> <div class="mobile-menu-wrapper"><hr class="menu-divider"> <ul class="mobile-nav"><li class="mobile-nav-item"><a href="/" class="nav-link"></a></li><li class="mobile-nav-item"><a href="/tag/javascript/" class="nav-link">javascript</a></li><li class="mobile-nav-item"><a href="/tag/css/" class="nav-link">css</a></li><li class="mobile-nav-item"><a href="/tag/other/" class="nav-link">其他</a></li><li class="mobile-nav-item"><a href="/tag/" class="nav-link">Tag</a></li> <li class="mobile-nav-item"><!----></li></ul></div></div></div> <div class="content-wrapper"><div id="vuepress-theme-blog__post-layout"><div class="vuepress-blog-theme-content"><div class="content__default"><h1 id="http协议初步探究"><a href="#http协议初步探究" class="header-anchor">#</a> HTTP协议初步探究</h1> <h2 id="http概念"><a href="#http概念" class="header-anchor">#</a> HTTP概念</h2> <p>​		HTTP协议是超文本传输协议，用于约束与规范客户机向服务器发送请求、服务器向客户机发送响应的过程。简而言之，当向服务器发送请求时，需要遵循http协议的相关规定。有一个需要记住的点，HTTP的默认端口为80，HTTPS协议的默认端口是443。</p> <h2 id="了解tcp-ip协议栈"><a href="#了解tcp-ip协议栈" class="header-anchor">#</a> 了解TCP/IP协议栈</h2> <p>​		在深入了解HTTP协议之前，我们需要先了解一下TCP/IP协议栈。TCP/IP协议栈不单指TCP、IP两个协议，它是由许多协议组成的一个协议簇。与OSI七层架构不同的是，TCP/IP协议簇分为四层：</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">/*
+应用层：为用户提供所需的各种服务，例如：HTTP、FTP、DNS、SMTP等
+传输层：为应用层实体提供端到端的通信功能，保证数据包的顺序传输及数据的完整性。该层主要定义了传输控制协议（TCP）和用户数据报协议（UDP）。
+网络层：主要解决主机到主机的通信问题，最主要的是IP协议。
+网络接口层：负责监视数据在主机和网络之间的交换
+*/</span>
+</code></pre></div><h3 id="tcp和udp的区别"><a href="#tcp和udp的区别" class="header-anchor">#</a> TCP和UDP的区别</h3> <p>​		用户数据报协议（UDP）是面向报文的数据，在发送数据前不需要建立链接，直接发送报文，且既可以一对一，也可以一对多，多对多，是不可靠的协议。</p> <p>​		传输控制协议（TCP）是面向链接的协议，在传输数据前需要建立链接，然后进行一对一的数据传输，是可靠的协议。</p> <p>​		在TCP协议建立链接之前，会进行三次握手：客户端向服务端发送链接请求、服务端发送应答、客户端再向服务端发送确认报文。TCP协议断开链接时，会进行四次挥手：客户端向服务端发送释放链接请求，服务端发送确认报文；服务端发送完所有数据后，向客户端发送释放链接请求；客户端向服务端发送确认请求。</p> <h2 id="http协议工作过程"><a href="#http协议工作过程" class="header-anchor">#</a> HTTP协议工作过程</h2> <p>​		一次HTTP操作称为一个事务，其工作过程可分为四步：</p> <p>1、首先客户机与服务器建立连接，这里依靠TCP协议。</p> <p>2、客户机向服务器发送一个请求，请求方式的格式为：统一资源标识符（URL）、协议版本号、后边是MIME信息，包括请求修饰符、客户机信息和可能的内容。</p> <p>3、服务器接到请求后，给与相应的响应信息。其格式包括一个状态行、协议号版本号、状态码、后边是MIME信息，包括服务器信息、实体信息和可能的内容。</p> <p>4、客户机收到响应，然后断开链接，这里依靠TCP协议。</p> <p>​		这四步中，任何一步若出现问题，即视为操作失败，整个操作作废。一个HTTP请求是无状态的,即服务器不能分辨客户端的信息。</p> <h2 id="请求和响应的组成"><a href="#请求和响应的组成" class="header-anchor">#</a> 请求和响应的组成</h2> <h3 id="请求"><a href="#请求" class="header-anchor">#</a> 请求</h3> <p>​		HTTP请求组成：请求行、消息报头、请求正文。</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">/*
+请求行：GET/ 路径 / HTTP / 1.1  分别为请求方式，路径，协议名称与版本号
+报文头：由键值对组成，常见的请求报头有：Accept:浏览器接收的数据格式；Accept-Encoding:接收数据是否能压缩；keep-alive：长链接或短链接
+报文体：请求所传的参数，当请求方式为get时，可以为空
+*/</span>
+</code></pre></div><h3 id="响应"><a href="#响应" class="header-anchor">#</a> 响应</h3> <p>​		HTTP响应组成:状态行、消息报文、响应正文。</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">/*
+状态行： HTTP / 1.1 200 OK  分别为协议名称与版本号，状态码与状态码描述
+响应头：由键值对组成
+响应体：服务器返回的数据
+*/</span>
+</code></pre></div><h2 id="http状态码"><a href="#http状态码" class="header-anchor">#</a> HTTP状态码</h2> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">/*
+1xx 指示消息--表示请求已接受，继续处理
+2xx 成功，表示请求已被成功接收、理解、接受
+3xx 重定向，要完成请求必须进行更进一步的操作
+4xx 客户端错误，请求有语法错误或请求无法实现
+5xx 服务端错误，服务器未能实现合法的请求
+*/</span>
+</code></pre></div></div> <!----> <hr> <!----></div> <div class="sticker vuepress-toc"><div class="vuepress-toc-item vuepress-toc-h2 active"><a href="#http概念" title="HTTP概念">HTTP概念</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#了解tcp-ip协议栈" title="了解TCP/IP协议栈">了解TCP/IP协议栈</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#tcp和udp的区别" title="TCP和UDP的区别">TCP和UDP的区别</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#http协议工作过程" title="HTTP协议工作过程">HTTP协议工作过程</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#请求和响应的组成" title="请求和响应的组成">请求和响应的组成</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#请求" title="请求">请求</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#响应" title="响应">响应</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#http状态码" title="HTTP状态码">HTTP状态码</a></div></div></div></div> <footer class="footer" data-v-582f9766><div class="footer-left-wrap" data-v-582f9766><ul class="contact" data-v-582f9766></ul></div> <div class="footer-right-wrap" data-v-582f9766><ul class="copyright" data-v-582f9766><li class="copyright-item" data-v-582f9766><a href="/2020/03/28/http%E5%8D%8F%E8%AE%AE%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%A9%B6/.html" class="nav-link" data-v-582f9766>Powered by VuePress | zhubo.liu © 2020-present</a></li></ul></div></footer></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.09a3bd8d.js" defer></script><script src="/assets/js/6.3ceb2cad.js" defer></script><script src="/assets/js/5.8edf4780.js" defer></script><script src="/assets/js/23.ac54be49.js" defer></script>
+  </body>
+</html>
