@@ -7,11 +7,11 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "xr": "bin/xr",
-    "xr-add": "bin/xr-add",
-    "xr-delete": "bin/xr-delete",
-    "xr-list": "bin/xr-list",
-    "xr-init": "bin/xr-init"
+    "zb": "bin/zb",
+    "zb-add": "bin/zb-add",
+    "zb-delete": "bin/zb-delete",
+    "zb-list": "bin/zb-list",
+    "zb-init": "bin/zb-init"
   },
   "keywords": [],
   "author": "",
