@@ -31,7 +31,7 @@ const spinner = ora('Downloading')
 spinner.start()
 
 download(
-  'https://code.choerodon.com.cn:happs-wmsdc/wms-ips-vue.git#master',
+  url,
   projectName,
   { clone: true },
   err => {
